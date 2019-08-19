@@ -1,15 +1,15 @@
 package com.example.girish.main;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.girish.user.entity.User;
 
 @RestController
 public class MainController {
 
 	@RequestMapping("/welcome")
-	public List<Integer> welcome() {
-		return List.of(1, 2, 3);
+	public User welcome() {
+		return new User(12, "Dummy");
 	}
 }
