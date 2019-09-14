@@ -19,8 +19,8 @@ public class MainController {
 	private UserRepo userRepo;
 
 	@GetMapping("/welcome")
-	public User welcome() {
-		return new User(12, "Dummy");
+	public String welcome() {
+		return "Welcome To Demo App";
 	}
 
 	@GetMapping("/User/{id}")
