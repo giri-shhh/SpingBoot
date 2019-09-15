@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.girish.main.entity.Product;
 import com.example.girish.main.entity.User;
+import com.example.girish.main.repo.ProductRepo;
 import com.example.girish.main.repo.UserRepo;
 
 @RestController
@@ -17,6 +19,9 @@ public class MainController {
 
 	@Autowired
 	private UserRepo userRepo;
+
+	@Autowired
+	private ProductRepo productRepo;
 
 	@GetMapping("/welcome")
 	public String welcome() {
@@ -36,5 +41,15 @@ public class MainController {
 	@GetMapping("/getAllUsers")
 	public List<User> getAllUsers() {
 		return userRepo.findAll();
+	}
+	
+	@GetMapping("/products")
+	public List<Product> getAllProducts() {
+		return productRepo.findAll();
+	}
+
+	@PutMapping("/addProduct")
+	public void saveProduct(@RequestBody Product product) {
+		productRepo.save(product);
 	}
 }
