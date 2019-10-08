@@ -28,17 +28,17 @@ public class MainController {
 		return "Welcome To Demo App";
 	}
 
-	@GetMapping("/User/{id}")
+	@GetMapping("/user/{id}")
 	public User getUser(@PathVariable Integer id) {
 		return userRepo.findById(id).orElse(null);
 	}
 
-	@PutMapping("/addUser")
+	@PutMapping("/adduser")
 	public void saveUser(@RequestBody User user) {
 		userRepo.save(user);
 	}
 
-	@GetMapping("/getAllUsers")
+	@GetMapping("/getallusers")
 	public List<User> getAllUsers() {
 		return userRepo.findAll();
 	}
@@ -48,7 +48,7 @@ public class MainController {
 		return productRepo.findAll();
 	}
 
-	@PutMapping("/addProduct")
+	@PutMapping("/addproduct")
 	public void saveProduct(@RequestBody Product product) {
 		productRepo.save(product);
 	}
