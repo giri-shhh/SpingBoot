@@ -1,4 +1,4 @@
-package com.example.girish.main;
+package com.example.girish.main.controller;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class MainController {
 	@Autowired
 	private ProductRepo productRepo;
 
-	@GetMapping("/welcome")
+	@GetMapping("/")
 	public String welcome() {
 		return "Welcome To Demo App";
 	}
@@ -49,7 +49,7 @@ public class MainController {
 	}
 
 	@PutMapping("/addproduct")
-	public void saveProduct(@RequestBody Product product) {
-		productRepo.save(product);
+	public Product saveProduct(@RequestBody Product product) {
+		return productRepo.save(product);
 	}
 }
