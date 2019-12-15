@@ -10,6 +10,6 @@ public class SpringBootDemoTest {
 
     @Test
     public void contextLoad() {
-    }
 
+    }
 }
