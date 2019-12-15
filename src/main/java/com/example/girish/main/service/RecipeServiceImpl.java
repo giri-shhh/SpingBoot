@@ -49,5 +49,5 @@ public class RecipeServiceImpl implements RecipeService {
     public  void deleteAllRecipes() {
         recipeRepository.deleteAll();
     }
-
+    
 }

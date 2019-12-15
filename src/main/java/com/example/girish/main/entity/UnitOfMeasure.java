@@ -8,12 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
-public class UnitOfMeasure {
+public class UnitOfMeasure extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String description;
 
 }

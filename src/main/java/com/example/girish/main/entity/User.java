@@ -11,12 +11,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
-public class User {
+public class User extends BaseEntity{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
 	private String name;
 	private String email;
 	private String phone;

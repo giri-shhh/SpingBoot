@@ -5,14 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 
 @Data
-@EqualsAndHashCode(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe"}, callSuper = true)
 @ToString(exclude = {"recipe"})
 @Entity
-public class Notes {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Notes extends BaseEntity{
 
     @Lob
     private String recipeNotes;

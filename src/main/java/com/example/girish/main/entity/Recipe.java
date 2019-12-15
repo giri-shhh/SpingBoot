@@ -7,12 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@ToString(exclude = {"ingredients", "categories"})
 @Entity
-public class Recipe {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Recipe extends BaseEntity{
 
     private String description;
     private Integer prepTime;
@@ -33,7 +30,7 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "recipe")
     private Set<Ingredient> ingredients = new HashSet<>();
 
     @ManyToMany

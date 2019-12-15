@@ -18,5 +18,6 @@ public class Starter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info(recipeService.getRecipes().toString());
+        log.info(recipeService.findRecipe(1L).toString());
     }
 }

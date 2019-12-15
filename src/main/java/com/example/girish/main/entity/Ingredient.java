@@ -7,14 +7,10 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe"}, callSuper = true)
 @ToString(exclude = {"recipe"})
 @Entity
-public class Ingredient {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Ingredient extends BaseEntity{
 
     private String description;
     private BigDecimal amount;
