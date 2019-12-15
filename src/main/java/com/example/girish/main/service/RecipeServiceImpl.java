@@ -24,4 +24,30 @@ public class RecipeServiceImpl implements RecipeService {
         recipeRepository.findAll().forEach(recipes::add);
         return recipes;
     }
+
+    @Override
+    public Recipe findRecipe(Long id) throws Exception {
+        return recipeRepository.findById(id).orElseThrow(() -> new Exception("Recipe Not Found"));
+    }
+
+    @Override
+    public Long addRecipe(Recipe recipe) {
+        return recipeRepository.save(recipe).getId();
+    }
+
+    @Override
+    public void addAllRecipes(Set<Recipe> recipes) {
+            recipeRepository.saveAll(recipes);
+    }
+
+    @Override
+    public void deleteRecipe(Long id) {
+        recipeRepository.deleteById(id);
+    }
+
+    @Override
+    public  void deleteAllRecipes() {
+        recipeRepository.deleteAll();
+    }
+
 }

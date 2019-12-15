@@ -2,9 +2,7 @@ package com.example.girish.main.controller;
 
 import com.example.girish.main.entity.Recipe;
 import com.example.girish.main.service.RecipeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -20,5 +18,25 @@ public class RecipeController {
     @GetMapping("/recipes")
     public Set<Recipe> getAllRecipes() {
         return recipeService.getRecipes();
+    }
+
+    @PostMapping("/addRecipe")
+    public Long addProduct(@RequestBody Recipe recipe) {
+        return recipeService.addRecipe(recipe);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteRecipe(@PathVariable("id") Long id) {
+        recipeService.deleteRecipe(id);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAll() {
+        recipeService.deleteAllRecipes();
+    }
+
+    @GetMapping("/{id}")
+    public Recipe getRecipe(@PathVariable("id") Long id) throws Exception {
+        return recipeService.findRecipe(id);
     }
 }
