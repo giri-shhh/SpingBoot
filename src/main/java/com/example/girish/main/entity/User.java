@@ -23,7 +23,6 @@ public class User {
 	private String address;
 
 	public User() {
-		super();
 	}
 
 	public int getId() {
@@ -73,5 +72,4 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 }
