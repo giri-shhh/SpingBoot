@@ -1,4 +1,4 @@
-package com.example.girish.main.bootstrap.utility;
+package com.example.girish.main.utility;
 
 import com.example.girish.main.service.RecipeService;
 import lombok.extern.slf4j.Slf4j;
