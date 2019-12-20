@@ -20,13 +20,13 @@ public class RecipeServiceImplTest {
     RecipeRepository recipeRepository;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
         recipeService = new RecipeServiceImpl(recipeRepository);
     }
 
     @Test
-    public void getRecipes() throws Exception {
+    public void getRecipes() {
         Recipe recipe = new Recipe();
         Set<Recipe> recipes = new HashSet<>();
         recipes.add(recipe);

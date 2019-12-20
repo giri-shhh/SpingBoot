@@ -2,7 +2,6 @@ package com.example.girish.main.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,8 +14,11 @@ import com.example.girish.main.repo.UserRepo;
 @RestController
 public class MainController {
 
-	@Autowired
-	private UserRepo userRepo;
+	private final UserRepo userRepo;
+
+	public MainController(UserRepo userRepo) {
+		this.userRepo = userRepo;
+	}
 
 	@GetMapping("/")
 	public String welcome() {
@@ -28,12 +30,12 @@ public class MainController {
 		return userRepo.findById(id).orElse(null);
 	}
 
-	@PutMapping("/adduser")
+	@PutMapping("/addUser")
 	public void saveUser(@RequestBody User user) {
 		userRepo.save(user);
 	}
 
-	@GetMapping("/getallusers")
+	@GetMapping("/getAllUsers")
 	public List<User> getAllUsers() {
 		return userRepo.findAll();
 	}
