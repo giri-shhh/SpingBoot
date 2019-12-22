@@ -2,6 +2,8 @@ package com.example.girish.main.controller;
 
 import java.util.List;
 
+import com.example.girish.main.service.RecipeService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,14 +17,16 @@ import com.example.girish.main.repo.UserRepo;
 public class MainController {
 
 	private final UserRepo userRepo;
+	private RecipeService recipeService;
 
-	public MainController(UserRepo userRepo) {
+	public MainController(UserRepo userRepo, RecipeService recipeService) {
 		this.userRepo = userRepo;
+		this.recipeService = recipeService;
 	}
 
-	@GetMapping("/")
-	public String welcome() {
-		return "Welcome To Demo App";
+	@GetMapping("/welcome")
+	public String welcome(Model model) {
+		return "Welcome to App";
 	}
 
 	@GetMapping("/user/{id}")

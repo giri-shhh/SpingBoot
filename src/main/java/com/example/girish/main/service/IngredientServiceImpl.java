@@ -110,7 +110,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public void deleteById(Long recipeId, Long idToDelete) {
+    public boolean deleteById(Long recipeId, Long idToDelete) {
 
         log.debug("Deleting ingredient: " + recipeId + ":" + idToDelete);
 
@@ -132,9 +132,12 @@ public class IngredientServiceImpl implements IngredientService {
                 ingredientToDelete.setRecipe(null);
                 recipe.getIngredients().remove(ingredientOptional.get());
                 recipeRepository.save(recipe);
+                return true;
             }
         } else {
             log.debug("Recipe Id Not found. Id:" + recipeId);
+            return false;
         }
+        return false;
     }
 }
