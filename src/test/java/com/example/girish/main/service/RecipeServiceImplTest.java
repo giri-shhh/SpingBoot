@@ -1,5 +1,6 @@
 package com.example.girish.main.service;
 
+import com.example.girish.main.convert.RecipeToRecipeCommand;
 import com.example.girish.main.entity.Recipe;
 import com.example.girish.main.repo.RecipeRepository;
 import org.junit.Before;
@@ -15,6 +16,7 @@ import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
     RecipeService recipeService;
+    RecipeToRecipeCommand recipeToRecipeCommand;
 
     @Mock
     RecipeRepository recipeRepository;
@@ -22,7 +24,7 @@ public class RecipeServiceImplTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeToRecipeCommand);
     }
 
     @Test

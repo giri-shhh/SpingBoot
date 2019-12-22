@@ -5,9 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 
 @Data
-@EqualsAndHashCode(exclude = {"recipe"}, callSuper = true)
-@ToString(exclude = {"recipe"})
 @Entity
+@ToString(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe"}, callSuper = true)
 public class Notes extends BaseEntity{
 
     @Lob

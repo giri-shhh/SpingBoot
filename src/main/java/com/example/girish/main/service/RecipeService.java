@@ -1,5 +1,6 @@
 package com.example.girish.main.service;
 
+import com.example.girish.main.commands.RecipeCommand;
 import com.example.girish.main.entity.Recipe;
 
 import java.util.Set;
@@ -17,4 +18,6 @@ public interface RecipeService {
     void deleteRecipe(Long id);
 
     void deleteAllRecipes();
+
+    RecipeCommand findCommandById(Long l) throws Exception;
 }

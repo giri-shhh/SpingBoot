@@ -1,5 +1,7 @@
 package com.example.girish.main.service;
 
+import com.example.girish.main.commands.RecipeCommand;
+import com.example.girish.main.convert.RecipeToRecipeCommand;
 import com.example.girish.main.entity.Recipe;
 import com.example.girish.main.repo.RecipeRepository;
 import org.springframework.stereotype.Service;
@@ -13,9 +15,11 @@ import java.util.Set;
 public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeRepository recipeRepository;
+    private final RecipeToRecipeCommand recipeToRecipeCommand;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeToRecipeCommand recipeToRecipeCommand) {
         this.recipeRepository = recipeRepository;
+        this.recipeToRecipeCommand = recipeToRecipeCommand;
     }
 
     @Override
@@ -49,5 +53,9 @@ public class RecipeServiceImpl implements RecipeService {
     public  void deleteAllRecipes() {
         recipeRepository.deleteAll();
     }
-    
+
+    @Override
+    public RecipeCommand findCommandById(Long l) throws Exception {
+        return recipeToRecipeCommand.convert(findRecipe(l));
+    }
 }

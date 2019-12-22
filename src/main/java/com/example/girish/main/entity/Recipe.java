@@ -1,15 +1,18 @@
 package com.example.girish.main.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = false)
 @Data
-@ToString(exclude = {"ingredients", "categories"})
 @Entity
+@ToString(exclude = {"ingredients", "categories"})
+@EqualsAndHashCode(exclude = {"ingredients", "categories"})
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Recipe extends BaseEntity{
 
     private String description;

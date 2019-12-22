@@ -1,15 +1,18 @@
 package com.example.girish.main.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
-@NoArgsConstructor
-@EqualsAndHashCode(exclude = {"recipe"}, callSuper = true)
-@ToString(exclude = {"recipe"})
 @Entity
+@NoArgsConstructor
+@ToString(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe"}, callSuper = true)
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Ingredient extends BaseEntity{
 
     private String description;

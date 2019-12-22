@@ -5,8 +5,8 @@ import lombok.*;
 import javax.persistence.Entity;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Entity
+@EqualsAndHashCode(callSuper = true)
 public class UnitOfMeasure extends BaseEntity {
 
     private String description;

@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Entity
+@EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity{
 
 	private String name;
