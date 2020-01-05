@@ -9,12 +9,8 @@ import com.example.girish.main.service.RecipeService;
 import com.example.girish.main.service.UnitOfMeasureService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -22,7 +18,7 @@ import java.util.Set;
  * Created by jt on 6/28/17.
  */
 @Slf4j
-@Controller
+@RestController
 public class IngredientController {
 
     private final IngredientService ingredientService;
