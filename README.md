@@ -4,3 +4,12 @@
 ______________________________________________________________________________________
 
 Back end Spring boot application for shopping recipe ingredients.
+
+Technologies Used :
+1. Java 8
+2. Spring Boot 2.2.2
+3. Spring Data JPA
+4. Spring Security
+5. Lombok
+6. Maven
+7. Thymeleaf
