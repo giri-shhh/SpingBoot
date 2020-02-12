@@ -33,7 +33,7 @@ public class IngredientController {
 
     @SneakyThrows
     @GetMapping("/recipe/{recipeId}/ingredients")
-    public RecipeCommand listIngredients(@PathVariable String recipeId, Model model) {
+    public RecipeCommand listIngredients(@PathVariable String recipeId, Model model) throws Exception {
         log.debug("Getting ingredient list for recipe id: " + recipeId);
         return recipeService.findCommandById(Long.valueOf(recipeId));
     }
@@ -46,7 +46,7 @@ public class IngredientController {
 
     @SneakyThrows
     @GetMapping("recipe/{recipeId}/ingredient/new")
-    public Set<UnitOfMeasureCommand> newRecipe(@PathVariable String recipeId, Model model) {
+    public Set<UnitOfMeasureCommand> newRecipe(@PathVariable String recipeId, Model model) throws Exception {
 
         //make sure we have a good id value
         RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
